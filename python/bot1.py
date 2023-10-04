@@ -2,6 +2,7 @@
 # никнейм бота coddyDamir
 # ссылка на бота 
 # рандом библиотека
+import webbrowser
 import random
 # token = 
 import telebot
@@ -48,6 +49,14 @@ def komandaShow(message):
 @mySuperBot.message_handler(commands=["myid"])
 def komandaID(message):
     mySuperBot.send_message(message.chat.id, message.from_user.id)
+
+@mySuperBot.message_handler(commands=["site"])
+def site(message):
+    sleep(1)
+    mySuperBot.send_chat_action(message.chat.id, "typing")
+    mySuperBot.send_message(message.chat.id, "В этой школе я обучался")
+    sleep(1)
+    webbrowser.open("https://coddyschool.com/")
 
 # отправка сообщение 
 @mySuperBot.message_handler(content_types=["text"])
